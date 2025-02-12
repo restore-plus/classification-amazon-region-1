@@ -49,7 +49,7 @@ region <- st_read(cube_region_file)
 #
 region <- filter(region, layer == "eco_1")
 
-region <- st_union(st_convex_hull(region))
+region <- st_as_sfc(st_bbox(region))
 
 #
 # 4. Generate cubes

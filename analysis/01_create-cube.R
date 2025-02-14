@@ -10,7 +10,7 @@ library(dplyr)
 #
 
 # Cube dates
-cube_years <- 2020:2014
+cube_years <- 2021
 
 # Temporal composition
 cube_temporal_composition <- "P3M"

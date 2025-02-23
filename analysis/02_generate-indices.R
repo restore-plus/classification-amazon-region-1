@@ -4,6 +4,7 @@ library(sf)
 library(fs)
 library(sits)
 library(dplyr)
+library(classificationamazonregion1)
 
 #
 # Cube definitions
@@ -13,7 +14,7 @@ library(dplyr)
 classification_years <- 2021
 
 # Cube directory
-cube_base_dir <- "data/derived/cube"
+cube_base_dir <- get_cubes_dir()
 
 #
 # Hardware definitions

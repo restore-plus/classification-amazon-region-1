@@ -4,6 +4,7 @@ library(sf)
 library(fs)
 library(sits)
 library(dplyr)
+library(classificationamazonregion1)
 
 #
 # Cube definitions
@@ -19,7 +20,7 @@ cube_temporal_composition <- "P3M"
 cube_bands <- c("BLUE", "GREEN", "RED", "NIR08" , "SWIR16", "SWIR22", "CLOUD")
 
 # Cube directory
-cube_base_dir <- "data/derived/cube"
+cube_base_dir <- get_cubes_dir()
 
 # Region
 cube_region_file <- "data/raw/region/amazon-regions-bdc-md.gpkg"

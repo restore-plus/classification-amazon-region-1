@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.4.3",
+    "Version": "4.4.1",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -688,7 +688,8 @@
       "URL": "https://gitlab.com/luke-tierney/codetools",
       "License": "GPL",
       "NeedsCompilation": "no",
-      "Repository": "CRAN"
+      "Repository": "RSPM",
+      "Encoding": "UTF-8"
     },
     "colorspace": {
       "Package": "colorspace",
@@ -3511,7 +3512,7 @@
       "RemoteUsername": "restore-plus",
       "RemoteRepo": "restore-utils",
       "RemoteRef": "main",
-      "RemoteSha": "5c319551e4f5a109a3321857390605acc25d0f3e"
+      "RemoteSha": "4e9b5af369c5955ef17707928634b4636f81def8"
     },
     "rlang": {
       "Package": "rlang",
@@ -4049,10 +4050,10 @@
       "Author": "Rolf Simoes [aut], Gilberto Camara [aut, cre, ths], Felipe Souza [aut], Felipe Carlos [aut], Lorena Santos [ctb], Charlotte Pelletier [ctb], Estefania Pizarro [ctb], Karine Ferreira [ctb, ths], Alber Sanchez [ctb], Alexandre Assuncao [ctb], Daniel Falbel [ctb], Gilberto Queiroz [ctb], Johannes Reiche [ctb], Pedro Andrade [ctb], Pedro Brito [ctb], Renato Assuncao [ctb], Ricardo Cartaxo [ctb]",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "e-sensing",
+      "RemoteUsername": "M3nin0",
       "RemoteRepo": "sits",
-      "RemoteRef": "dev",
-      "RemoteSha": "b20e3cb84232672e5fadf4607eab488ec2e5fe53"
+      "RemoteRef": "ogh-reg",
+      "RemoteSha": "e36d0bda0e3cc4ebc1aa4c30037ee0869c62af7c"
     },
     "slider": {
       "Package": "slider",

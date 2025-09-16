@@ -13,19 +13,19 @@ base_cubes_dir <- restoreutils::project_cubes_dir()
 base_classifications_dir <- restoreutils::project_classifications_dir()
 
 # Model
-model_version <- "random-forest-model_no-lbae"
+model_version <- "random-forest-model_no-lbae_noperene"
 
 # Classification - version
-classification_version <- "samples-v2-eco1"
+classification_version <- "samples-v2-noperene-eco2"
 
 # Classification - years
-regularization_years <- 2015:2022
+regularization_years <- 2015:2019
 
 # Hardware - Multicores
-multicores <- 36
+multicores <- 32
 
 # Hardware - Memory size
-memsize <- 180
+memsize <- 140
 
 
 #
@@ -39,8 +39,11 @@ model <- readRDS(
 #
 # 2. Load eco region 1 shape
 #
-eco_region_roi <- restoreutils::roi_ecoregions(region_id = 1,
-                                               crs = restoreutils::crs_bdc(), as_convex = TRUE)
+eco_region_roi <- restoreutils::roi_ecoregions(
+  region_id = 1,
+  crs       = restoreutils::crs_bdc(),
+  as_convex = TRUE
+)
 
 
 #

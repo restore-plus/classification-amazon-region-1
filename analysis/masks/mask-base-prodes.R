@@ -10,12 +10,12 @@ options(timeout = max(600, getOption("timeout")))
 #
 # General definitions
 #
-memsize    <- 160
-multicores <- 38
+memsize    <- 100
+multicores <- 35
 
 version <- "v2"
 
-mask_years <- 2015:2022
+mask_years <- c(2015, 2016, 2017, 2020, 2021, 2022)
 
 
 #

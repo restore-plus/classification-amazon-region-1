@@ -11,7 +11,7 @@ options(timeout = max(600, getOption("timeout")))
 # 1) Download Terraclass data
 #
 restoreutils::prepare_terraclass(
-  years      = c(2008, 2010, 2012, 2014, 2018, 2020, 2022),
+  years      = c(2010),
   region_id  = 1,
-  multicores = 3
+  multicores = 1
 )

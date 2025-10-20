@@ -4,25 +4,26 @@ library(restoreutils)
 #
 # Config: Connection timeout
 #
-options(timeout = max(600, getOption("timeout")))
+options(timeout = max(720, getOption("timeout")))
 
 
 #
 # General definitions
 #
-memsize    <- 100
-multicores <- 35
+memsize    <- 140
+multicores <- 44
 
 version <- "v2"
 
-mask_years <- c(2015, 2016, 2017, 2020, 2021, 2022)
+mask_years <- c(2002, 2003)
 
 
 #
 # 1) Download Prodes data
 #
 restoreutils::prepare_prodes(
-  region_id = 1
+  region_id = 1,
+  years     = c(2002, 2003)
 )
 
 
@@ -34,10 +35,11 @@ restoreutils::prepare_prodes(
 #       extra data transformations
 #
 purrr::map(mask_years, function(mask_year) {
-  restoreutils::prodes_generate_forest_mask(
-    target_year   = mask_year,
-    version       = version,
-    multicores    = multicores,
-    memsize       = memsize
+  restoreutils::prodes_generate_mask(
+    target_year    = mask_year,
+    version        = version,
+    multicores     = multicores,
+    memsize        = memsize,
+    nonforest_mask = TRUE
   )
 })

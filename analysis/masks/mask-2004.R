@@ -31,7 +31,7 @@ multicores <- 44
 memsize    <- 160
 
 # ROI
-eco_region_roi <- restoreutils::roi_ecoregions(
+eco_region_roi <- restoreutils::roi_amazon_regions(
   region_id  = 1,
   crs        = restoreutils::crs_bdc(),
   as_union   = TRUE,

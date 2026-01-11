@@ -27,7 +27,7 @@ memsize <- 180
 #
 # 1. Load eco region roi
 #
-eco_region_roi <- restoreutils::roi_ecoregions(
+eco_region_roi <- restoreutils::roi_amazon_regions(
   region_id = 1,
   crs       = restoreutils::crs_bdc(),
   as_convex = TRUE
@@ -100,10 +100,10 @@ for (regularization_year in regularization_years) {
     print(paste0('Existing tiles: ', length(existing_tiles)))
   }
 
-  # Inform user about the current number of tiles to be processed 
+  # Inform user about the current number of tiles to be processed
   # (some can be removed thanks to the existing data)
   print(paste0('Tiles to process: ', nrow(current_year_tiles)))
-    
+
   # Regularize tile by tile
   purrr::map(current_year_tiles[["tile_id"]], function(tile) {
     print(tile)
@@ -124,7 +124,7 @@ for (regularization_year in regularization_years) {
         return(NULL)
       }
     )
-    
+
     if (is.null(cube_year) || nrow(cube_year) == 0) {
       return(NULL)
     }

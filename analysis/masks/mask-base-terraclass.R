@@ -2,21 +2,18 @@ library(sits)
 library(restoreutils)
 
 #
-# Config: Connection timeout
-#
-# options(timeout = max(720, getOption("timeout")))
-
-#
 # General definitions
 #
-memsize    <- 200
-multicores <- 44
+memsize    <- 100
+multicores <- 35
+
+year_to_prepare <- c(2004, 2008, 2010, 2012, 2014, 2018, 2020, 2022)
 
 #
 # 1) Download Terraclass data
 #
 restoreutils::prepare_terraclass(
-  years            = c(2004, 2008, 2010, 2012, 2014, 2018, 2020, 2022),
+  years            = year_to_prepare,
   region_id        = 1,
   multicores       = multicores,
   memsize          = memsize,

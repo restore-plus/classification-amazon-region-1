@@ -15,19 +15,19 @@ cubes_dir <- restoreutils::project_cubes_dir()
 cube_bands <- c("BLUE", "GREEN", "RED", "NIR08", "SWIR16", "SWIR22", "CLOUD")
 
 # Processing years
-regularization_years <- 2015:2019 # 2017:2024
+regularization_years <- 2015:2022
 
 # Hardware - Multicores
-multicores <- 32
+multicores <- 35
 
 # Hardware - Memory size
-memsize <- 180
+memsize <- 320
 
 
 #
 # 1. Load eco region roi
 #
-eco_region_roi <- restoreutils::roi_amazon_regions(
+eco_region_roi <- restoreutils::roi_ecoregions(
   region_id = 1,
   crs       = restoreutils::crs_bdc(),
   as_convex = TRUE
@@ -42,6 +42,9 @@ bdc_tiles <- sits_roi_to_tiles(
   crs = restoreutils::crs_bdc(),
   grid_system = "BDC_MD_V2"
 )
+
+bdc_tiles_bbox <- sf::st_union(bdc_tiles) |>
+  sf::st_bbox()
 
 
 #
@@ -73,17 +76,17 @@ for (regularization_year in regularization_years) {
 
   # Loading existing cube
   existing_cube <- tryCatch(
-      {
-        sits_cube(
-           source      = "BDC",
-           collection  = "LANDSAT-OLI-16D",
-           data_dir    = cube_year_dir,
-           progress    = FALSE
-        )
-      },
-      error = function(e) {
-        return(NULL)
-      }
+    {
+      sits_cube(
+        source      = "BDC",
+        collection  = "LANDSAT-OLI-16D",
+        data_dir    = cube_year_dir,
+        progress    = FALSE
+      )
+    },
+    error = function(e) {
+      return(NULL)
+    }
   )
 
   # Inform user about the current number of tiles
@@ -145,10 +148,10 @@ for (regularization_year in regularization_years) {
 
     # Generate indices
     cube_year_reg <- restoreutils::cube_generate_indices_bdc(
-      cube = cube_year_reg,
+      cube       = cube_year_reg,
       output_dir = cube_year_dir,
       multicores = multicores,
-      memsize = memsize
+      memsize    = memsize
     )
   })
 
